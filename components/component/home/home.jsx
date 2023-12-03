@@ -2,12 +2,20 @@
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import ReplacementsList from "./replacementsList";
-import { useRef } from "react";
-import words from "@/wordsData";
+import { useLayoutEffect, useRef, useState } from "react";
 import replaceWordsWithRandom from "@/lib/replaceInput";
+import getReplacementWords from "@/lib/getReplacementWords";
+import toggleWordChoice from "@/lib/toggleWordChoice";
 
 export function Home() {
   const input = useRef();
+
+  const [replacementWordList, setReplacementWordList] = useState();
+
+  useLayoutEffect(() => {
+    const words = getReplacementWords();
+    setReplacementWordList(words);
+  }, []);
 
   const handleReplace = () => {
     if (!input.current.value) {
@@ -15,18 +23,30 @@ export function Home() {
       return;
     }
 
-    const replaced = replaceWordsWithRandom(input.current.value, words);
+    const replaced = replaceWordsWithRandom(
+      input.current.value,
+      replacementWordList
+    );
 
     input.current.value = replaced;
   };
 
-  const handleCopy = async () => {
+  const handleCopy = () => {
     if ("clipboard" in navigator) {
-      await navigator.clipboard.writeText(input.current.value);
+      navigator.clipboard.writeText(input.current.value);
     } else {
       document.execCommand("copy", true, input.current.value);
     }
   };
+
+  function handleSelect(word, replacementName) {
+    const modifiedSelects = toggleWordChoice(
+      word,
+      replacementName,
+      replacementWordList
+    );
+    setReplacementWordList(modifiedSelects);
+  }
 
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 min-h-[100dvh]">
@@ -55,7 +75,10 @@ export function Home() {
             </Button>
           </div>
         </div>
-        <ReplacementsList />
+        <ReplacementsList
+          list={replacementWordList}
+          handleSelect={handleSelect}
+        />
       </div>
     </section>
   );

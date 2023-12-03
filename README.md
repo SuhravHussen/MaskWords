@@ -1,37 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mask Words App 👺
 
-## Getting Started
+## Overview 🌐
 
-First, run the development server:
+The **Mask Words** app is designed to help users bypass restrictions on certain words when posting on Facebook. Facebook's algorithm might reduce the reach of a post containing specific words, but with **Mask Words**, users can input their text, and the app will intelligently replace these words with alternatives, ensuring that the message is conveyed without interference.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features 🚀
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Word Replacement:** Users can input their text, and the app will automatically replace flagged words with alternatives.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Customization:** Users have the option to choose from a list of replacement words. Purple-colored words are selected by default, and users can click on any word to toggle its selection.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Bypass Algorithm:** By utilizing this app, users can effectively communicate their message without triggering Facebook's content restrictions.
 
-## Learn More
+## Technologies Used 💻
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** Next.js
+- **CSS Framework:** Tailwind CSS
+- **UI Library:** Shadcn
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How to Use 🤔
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Run the app using `npm run dev`.
+4. Access the app in your browser at [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+## Customization 🎨
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Input your text in the provided field.
+- Choose replacement words by clicking on them.
+- Click submit to get the modified text.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# MaskWords
+## Note 📝
+
+If no replacement word is chosen, the original word won't be replaced.
+
+Feel free to explore and contribute to the development of **Mask Words**! 🚀
