@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function ReplacementWordsSkeleton() {

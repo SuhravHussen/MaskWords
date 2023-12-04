@@ -51,18 +51,18 @@ export function Home() {
 
   return (
     <>
-      <div className="w-full flex justify-center items-center bg-gradient-to-r from-red-500 via-white to-green-500 text-white py-2">
+      <div className="w-full flex justify-center items-center bg-gradient-to-r from-red-500 via-white to-green-500 text-white py-1">
         <Image
           alt="Palestine Flag"
-          height={30}
+          height={20}
           src="/PalestineFlag.png"
           style={{
-            aspectRatio: "45/30",
+            aspectRatio: "40/20",
             objectFit: "cover",
           }}
-          width={45}
+          width={40}
         />
-        <p className="ml-3 text-lg font-semibold text-black">Free Palestine</p>
+        <p className="ml-3  font-semibold text-black">Free Palestine</p>
       </div>
       <section className="w-full pt-12 pb-8 md:pt-24 md:pb-18 lg:pt-32  lg:pb-28 min-h-[100dvh]">
         <div className="container px-4 md:px-6">
