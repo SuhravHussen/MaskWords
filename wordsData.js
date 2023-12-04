@@ -19,6 +19,16 @@ const words = {
       selected: false,
     },
   ],
+  ট্র‍্যান্সজেন্ডার: [
+    {
+      replacedName: "ট্রাশগন্ডার",
+      selected: true,
+    },
+    {
+      replacedName: "রন্ডাজেন্সট্রা",
+      selected: false,
+    },
+  ],
   জিহাদ: [
     {
       replacedName: "দহাজি",
@@ -46,6 +56,16 @@ const words = {
     },
     {
       replacedName: "ɭ∫☈ꍏ€↳",
+      selected: false,
+    },
+  ],
+  ইসরাইল: [
+    {
+      replacedName: "ই-rai-ল",
+      selected: true,
+    },
+    {
+      replacedName: "ই%-=।ল",
       selected: false,
     },
   ],
