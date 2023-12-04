@@ -64,12 +64,12 @@ export function Home() {
         />
         <p className="ml-3 text-lg font-semibold text-black">Free Palestine</p>
       </div>
-      <section className="w-full py-12 md:py-24 lg:py-32 min-h-[100dvh]">
+      <section className="w-full pt-12 pb-8 md:pt-24 md:pb-18 lg:pt-32  lg:pb-28 min-h-[100dvh]">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Word Replacement
+                Mask words
               </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 Enter your paragraph and click Replace to see the replaced
@@ -95,6 +95,19 @@ export function Home() {
             list={replacementWordList}
             handleSelect={handleSelect}
           />
+          <p className="text-gray-500 mt-12 dark:text-gray-400">
+            Note: You may see the same words twice in the replacement words
+            sections, but they are not identical. Some words may have hidden
+            characters inside of them. That's why you are seeing two options of
+            the same spelled words. As example ট্র‍্যান্সজেন্ডার and
+            ট্র্যান্সজেন্ডার are not same. First one has one hidden character.
+            Try disabling one in replacement words section. You will see one is
+            replacing but other one is not. If you have any further suggestions
+            or feedback contact{" "}
+            <a className="underline text-blue-500" href="#">
+              suhravhshan@gmail.com
+            </a>
+          </p>
         </div>
       </section>
     </>
