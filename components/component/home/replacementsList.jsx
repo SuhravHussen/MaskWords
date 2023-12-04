@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
-export default function ReplacementsList({ list, handleSelect }) {
+import ReplacementWordsSkeleton from "../skeletons/replacementWordsSkeleton";
+export default function ReplacementsList({ list = [], handleSelect }) {
   return (
     <>
       <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mt-12 ">
@@ -25,6 +26,8 @@ export default function ReplacementsList({ list, handleSelect }) {
             </div>
           );
         })}
+
+        {list.length === 0 && <ReplacementWordsSkeleton />}
       </div>
     </>
   );
