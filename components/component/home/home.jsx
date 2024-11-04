@@ -4,17 +4,18 @@ import { Button } from "@/components/ui/button";
 import ReplacementsList from "./replacementsList";
 import { useLayoutEffect, useRef, useState } from "react";
 import replaceWordsWithRandom from "@/lib/replaceInput";
-import getReplacementWords from "@/lib/getReplacementWords";
 import toggleWordChoice from "@/lib/toggleWordChoice";
 import Image from "next/image";
+import AddWords from "./AddWords";
+import useLocalStorage from "@/lib/hooks/useLocalStorage";
 
 export function Home() {
   const input = useRef();
 
   const [replacementWordList, setReplacementWordList] = useState();
+  const [words, setWords] = useLocalStorage("words", []);
 
   useLayoutEffect(() => {
-    const words = getReplacementWords();
     setReplacementWordList(words);
   }, []);
 
@@ -47,6 +48,13 @@ export function Home() {
       replacementWordList
     );
     setReplacementWordList(modifiedSelects);
+    setWords(modifiedSelects);
+  }
+
+  function handleDelete(word) {
+    const deleted = replacementWordList.filter((item) => item.word !== word);
+    setReplacementWordList(deleted);
+    setWords(deleted);
   }
 
   return (
@@ -81,7 +89,7 @@ export function Home() {
                 id="paragraph"
                 placeholder="Type  here."
                 ref={input}
-                className="min-h-[200px] text-black"
+                className="min-h-[200px] rounded "
               />
             </div>
             <div className="flex space-x-4">
@@ -94,19 +102,23 @@ export function Home() {
           <ReplacementsList
             list={replacementWordList}
             handleSelect={handleSelect}
+            handleDelete={handleDelete}
           />
+          <AddWords setReplacementWordList={setReplacementWordList} />
           <p className="text-gray-500 mt-12 dark:text-gray-400">
-            Note: You may see the same words twice in the replacement words
-            sections, but they are not identical. Some words may have hidden
-            characters inside of them. That's why you are seeing two options of
-            the same spelled words. As example ট্র‍্যান্সজেন্ডার and
-            ট্র্যান্সজেন্ডার are not same. First one has one hidden character.
-            Try disabling one in replacement words section. You will see one is
-            replacing but other one is not. If you have any further suggestions
-            or feedback contact{" "}
-            <a className="underline text-blue-500" href="#">
+            Words with a
+            <span className="bg-purple-500 text-white px-1 mx-1 rounded">
+              purple background
+            </span>
+            are active and will be replaced with those active alternatives. For
+            any questions, contact me at
+            <a
+              className="underline text-blue-500 ml-2"
+              href="mailto:suhravhshan@gmail.com"
+            >
               suhravhshan@gmail.com
             </a>
+            .
           </p>
         </div>
       </section>
